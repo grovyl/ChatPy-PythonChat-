@@ -23,8 +23,8 @@ while True:
                     print ("User " + data[3:-1] +" added.")
                     connect.send(("Your user detail saved as : "+str(data[3:-1])).encode())
                 elif (data.startswith("b'@")):
-                    print(data[data.index(':')+1:-1])
-                    users[data[3:data.index(':')].lower()].send((data[3:data.index(':')].lower() + ": " + data[data.index(':')+1:-1]).encode())
+                    print(data[data.index(':')+1:data.index('-')])
+                    users[data[3:data.index(':')].lower()].send((data[data.index('-')+1:-1].lower() + ": " + data[data.index(':')+1:data.index('-')]).encode())
             except:
                 continue
 server_socket.close()

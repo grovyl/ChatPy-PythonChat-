@@ -6,6 +6,8 @@ recv_msg = client_socket.recv(1024)
 print(recv_msg)
 send_msg = input("Enter your user name(prefix with #):")
 client_socket.send(send_msg.encode())
+username=str(send_msg[1:])
+print(username)
 
 while True:
     recv_msg = client_socket.recv(1024)
@@ -16,6 +18,6 @@ while True:
     if send_msg == 'exit':
         break;
     else:
-        client_socket.send(send_msg.encode())
+        client_socket.send((send_msg + "-" + username).encode())
     
 client_socket.close()
