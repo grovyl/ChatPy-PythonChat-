@@ -22,7 +22,7 @@ def create_options_window():
 
 def main():
 
-    sg.theme('DarkBlue1') # theme
+    sg.theme('DarkBlue1') # default theme
 
     client_socket = socket.socket()
     port = 12345
@@ -31,7 +31,6 @@ def main():
     print(recv_msg)
 
     window = create_menu_window()
-    print("TEST")
 
     while True:
         event, values = window.read()
