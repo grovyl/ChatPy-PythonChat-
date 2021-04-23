@@ -20,6 +20,19 @@ def create_options_window():
 
     return window
 
+def create_chat_window():
+    layout = [  [sg.Text('Messages received')],
+                [sg.Multiline(size=(50, 5), disabled=True, key='_textbox_')],
+                [sg.Text('Send a message')],
+                [sg.Text('Enter the addressee\'s username'), sg.InputText()],
+                [sg.Text('Enter the message'), sg.InputText()],
+                [sg.Button('Send'), sg.Button('Exit')] ]
+
+    window = sg.Window('ChatPy', layout)
+    
+    return window
+    
+
 def main():
 
     sg.theme('DarkBlue1') # default theme
@@ -62,14 +75,7 @@ def main():
 
     window.close()
 
-    layout = [  [sg.Text('Messages received')],
-                [sg.Multiline(size=(50, 5), disabled=True, key='_textbox_')],
-                [sg.Text('Send a message')],
-                [sg.Text('Enter the addressee\'s username'), sg.InputText()],
-                [sg.Text('Enter the message'), sg.InputText()],
-                [sg.Button('Send'), sg.Button('Exit')] ]
-
-    window = sg.Window('ChatPy', layout)
+    window = create_chat_window()
 
     while True:
         event, values = window.read()
